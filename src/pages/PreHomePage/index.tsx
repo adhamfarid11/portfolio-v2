@@ -38,7 +38,7 @@ const PreHomePage: React.FC = () => {
     randomizedNumber[count] == 0 || randomizedNumber[count] == 1;
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="relative w-screen h-screen flex flex-col items-center justify-center gap-10 ">
       <TypingText
         text={getRandomizedTexts()}
         typingSpeed={75}
@@ -51,8 +51,6 @@ const PreHomePage: React.FC = () => {
           setCount((prev) => prev + 1);
         }}
       />
-      <pre>{count}</pre>
-      <pre>{texts.length}</pre>
 
       {handleShowingTranslation && (
         <TypingText
@@ -63,6 +61,9 @@ const PreHomePage: React.FC = () => {
           variableSpeed={{ min: 50, max: 120 }}
         />
       )}
+      <p className=" absolute bottom-10 right-0 left-0 text-2xl text-gray-700">
+        Begin the journey in {3 - count}...
+      </p>
     </div>
   );
 };
