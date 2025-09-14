@@ -15,6 +15,7 @@ const HomePage: React.FC = () => {
     >
       <PreHomePage textDisplayCount={1} onComplete={scrollToHero} />
       <Hero ref={heroRef} />
+      <div className="h-screen bg-red-300">aksksdks</div>
     </div>
   );
 };

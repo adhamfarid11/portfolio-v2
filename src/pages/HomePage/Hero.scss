@@ -1,3 +1,17 @@
-.full-width-text {
-  font-size: 10vw;
+.custom-svg {
+  $svg-size: 20vw;
+
+  width: $svg-size;
+  height: $svg-size;
+  top: 50%;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  //   color: linear-gradient(to right, #3b82f6, #1e3a8a, #3b82f6);
+  svg {
+    font-size: $svg-size;
+    width: 100%;
+    height: 100%;
+  }
 }
