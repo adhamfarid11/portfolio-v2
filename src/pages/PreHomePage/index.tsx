@@ -1,7 +1,15 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import TypingText from "../../components/ui/shadcn-io/typing-text";
 
-const PreHomePage: React.FC = () => {
+interface PreHomePageProps {
+  textDisplayCount: number;
+  onComplete: () => void;
+}
+
+const PreHomePage: React.FC<PreHomePageProps> = ({
+  textDisplayCount,
+  onComplete,
+}) => {
   const texts = [
     "こんにちは!",
     "안녕하세요!",
@@ -15,10 +23,15 @@ const PreHomePage: React.FC = () => {
   const textsTranslation = ["Konnichiwa!", "Annyeonghaseyo!"];
 
   const [count, setCount] = useState(0);
+  const [onCompleted, setOnCompleted] = useState(false);
 
   useEffect(() => {
     if (count > texts.length) {
       setCount(0);
+    }
+    if (count > textDisplayCount && !onCompleted) {
+      onComplete();
+      setOnCompleted(true);
     }
   }, [count]);
 
@@ -38,7 +51,7 @@ const PreHomePage: React.FC = () => {
     randomizedNumber[count] == 0 || randomizedNumber[count] == 1;
 
   return (
-    <div className="relative w-screen h-screen flex flex-col items-center justify-center gap-10 ">
+    <div className="w-screen h-screen flex flex-col items-center justify-center gap-10">
       <TypingText
         text={getRandomizedTexts()}
         typingSpeed={75}
@@ -61,9 +74,6 @@ const PreHomePage: React.FC = () => {
           variableSpeed={{ min: 50, max: 120 }}
         />
       )}
-      <p className=" absolute bottom-10 right-0 left-0 text-2xl text-gray-700">
-        Begin the journey in {3 - count}...
-      </p>
     </div>
   );
 };
