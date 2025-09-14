@@ -4,7 +4,7 @@ interface HeroProps {
   // you can still have custom props here if needed
 }
 
-const Hero = forwardRef<HTMLDivElement, HeroProps>((props, ref) => {
+const Hero = forwardRef<HTMLDivElement, HeroProps>((_, ref) => {
   return (
     <div ref={ref} className="h-screen bg-red-100">
       Hero

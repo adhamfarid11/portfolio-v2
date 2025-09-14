@@ -1,7 +1,8 @@
 "use client";
 
+import type { ElementType } from "react";
+
 import {
-  ElementType,
   useEffect,
   useRef,
   useState,
